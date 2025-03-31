@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: antique-db
+    environment:
+      POSTGRES_DB: antique_bd
+      POSTGRES_USER: antique_adept
+      POSTGRES_PASSWORD: secretpassword
+    ports:
+      - "5432:5432"
