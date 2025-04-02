@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>code.klein</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>anique</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>AntiQue</name>
 	<description>School project of car rental company</description>
 	<url/>
 	<licenses>
