@@ -1,3 +1,17 @@
 package code.klein.demo.request;
 
-public record UpdateUserRequest(String lastUsername, String lastEmail, String username, String email) {}
+import java.time.LocalDate;
+
+public record UpdateUserRequest(
+        String lastUsername,
+        String lastEmail,
+        String username,
+        String email,
+        String firstName,
+        String lastName,
+        String street,
+        String city,
+        String postalCode,
+        String country,
+        LocalDate birthDate
+) {}

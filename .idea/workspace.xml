@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="User CRUD operations">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/CarRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateCarRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/EditCarRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/AntiQueApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/DemoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/code/klein/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/code/klein/demo/AntiQueApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/UpdateUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,22 +43,22 @@
     &quot;assignee&quot;: &quot;kostushaaa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kostushaaa/AntiQue.git",
-    "accountId": "79dff90b-b3a6-4910-8a14-c5fc1b05bdd7"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kostushaaa/AntiQue.git&quot;,
+    &quot;accountId&quot;: &quot;79dff90b-b3a6-4910-8a14-c5fc1b05bdd7&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "kostushaaa",
-    "repository": "AntiQue"
+    &quot;owner&quot;: &quot;kostushaaa&quot;,
+    &quot;repository&quot;: &quot;AntiQue&quot;
   }
-}]]></component>
+}</component>
   <component name="HttpClientEndpointsTabState">
     <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests /&gt;" />
   </component>
@@ -79,27 +75,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.antique_docker.postgres: Compose Deployment.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AntiQueApplication.executor": "Run",
-    "Spring Boot.DemoApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.antique_docker.postgres: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AntiQueApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="code.klein.demo.request" />
@@ -114,7 +110,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="antique_docker.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -132,6 +130,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
@@ -217,6 +216,7 @@
     <MESSAGE value="ide, git, temp_files" />
     <MESSAGE value="User entity, JPA repository, User Service, Rest Post Controller" />
     <MESSAGE value="User CRUD operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="User CRUD operations" />
+    <MESSAGE value="Cars CRUD operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cars CRUD operations" />
   </component>
 </project>
