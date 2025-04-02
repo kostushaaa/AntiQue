@@ -1,0 +1,386 @@
+Index: backend/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\txsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n\t<modelVersion>4.0.0</modelVersion>\r\n\t<parent>\r\n\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t<artifactId>spring-boot-starter-parent</artifactId>\r\n\t\t<version>3.4.4</version>\r\n\t\t<relativePath/> <!-- lookup parent from repository -->\r\n\t</parent>\r\n\t<groupId>code.klein</groupId>\r\n\t<artifactId>demo</artifactId>\r\n\t<version>0.0.1-SNAPSHOT</version>\r\n\t<name>demo</name>\r\n\t<description>School project of car rental company</description>\r\n\t<url/>\r\n\t<licenses>\r\n\t\t<license/>\r\n\t</licenses>\r\n\t<developers>\r\n\t\t<developer/>\r\n\t</developers>\r\n\t<scm>\r\n\t\t<connection/>\r\n\t\t<developerConnection/>\r\n\t\t<tag/>\r\n\t\t<url/>\r\n\t</scm>\r\n\t<properties>\r\n\t\t<java.version>17</java.version>\r\n\t</properties>\r\n\t<dependencies>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-data-jpa</artifactId>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-web</artifactId>\r\n\t\t</dependency>\r\n\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.postgresql</groupId>\r\n\t\t\t<artifactId>postgresql</artifactId>\r\n\t\t\t<scope>runtime</scope>\r\n\t\t</dependency>\r\n\t\t<dependency>\r\n\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t<artifactId>spring-boot-starter-test</artifactId>\r\n\t\t\t<scope>test</scope>\r\n\t\t</dependency>\r\n\t</dependencies>\r\n\r\n\t<build>\r\n\t\t<plugins>\r\n\t\t\t<plugin>\r\n\t\t\t\t<groupId>org.springframework.boot</groupId>\r\n\t\t\t\t<artifactId>spring-boot-maven-plugin</artifactId>\r\n\t\t\t</plugin>\r\n\t\t</plugins>\r\n\t</build>\r\n\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/pom.xml b/backend/pom.xml
+--- a/backend/pom.xml	(revision ef4ff33b238eca92e152545994fe1da0ac1b1dc1)
++++ b/backend/pom.xml	(date 1743416188615)
+@@ -39,6 +39,13 @@
+ 			<artifactId>spring-boot-starter-web</artifactId>
+ 		</dependency>
+ 
++		<dependency>
++			<groupId>org.projectlombok</groupId>
++			<artifactId>lombok</artifactId>
++			<version>1.18.30</version>
++			<scope>provided</scope>
++		</dependency>
++
+ 		<dependency>
+ 			<groupId>org.postgresql</groupId>
+ 			<artifactId>postgresql</artifactId>
+Index: backend/src/main/java/code/klein/demo/entity/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/entity/User.java b/backend/src/main/java/code/klein/demo/entity/User.java
+new file mode 100644
+--- /dev/null	(date 1743417219198)
++++ b/backend/src/main/java/code/klein/demo/entity/User.java	(date 1743417219198)
+@@ -0,0 +1,27 @@
++package code.klein.demo.entity;
++
++import jakarta.persistence.*;
++import lombok.*;
++import org.hibernate.annotations.CreationTimestamp;
++
++import java.time.LocalDateTime;
++
++@Entity
++@Data
++@Table(name = "users")
++@Builder
++@NoArgsConstructor
++@AllArgsConstructor
++public class User {
++
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++
++    private String username;
++
++    private String email;
++
++    @CreationTimestamp
++    private LocalDateTime createdAt;
++}
+Index: backend/src/main/java/code/klein/demo/service/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/service/UserService.java b/backend/src/main/java/code/klein/demo/service/UserService.java
+new file mode 100644
+--- /dev/null	(date 1743417445991)
++++ b/backend/src/main/java/code/klein/demo/service/UserService.java	(date 1743417445991)
+@@ -0,0 +1,31 @@
++package code.klein.demo.service;
++
++import code.klein.demo.entity.User;
++import code.klein.demo.repository.UserRepository;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.security.InvalidParameterException;
++
++@Service
++public class UserService {
++
++    @Autowired
++    private UserRepository userRepository;
++
++    public User createUser(final String username, final String email) {
++        if (username == null || email == null || username.isEmpty() || email.isEmpty()) {
++            throw new InvalidParameterException("Username and email are required");
++        }
++        if (userRepository.existsByUsername(username) && userRepository.existsByEmail(email)) {
++            throw new InvalidParameterException("This user already exists");
++        }
++
++        User user = User.builder()
++                .username(username)
++                .email("klein@example.com")
++                .build();
++
++        return userRepository.save(user);
++    }
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\" defaultProject=\"true\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision ef4ff33b238eca92e152545994fe1da0ac1b1dc1)
++++ b/.idea/vcs.xml	(date 1743415754459)
+@@ -1,4 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="VcsDirectoryMappings" defaultProject="true" />
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: backend/src/main/java/code/klein/demo/repository/UserRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/repository/UserRepository.java b/backend/src/main/java/code/klein/demo/repository/UserRepository.java
+new file mode 100644
+--- /dev/null	(date 1743417418645)
++++ b/backend/src/main/java/code/klein/demo/repository/UserRepository.java	(date 1743417418645)
+@@ -0,0 +1,17 @@
++package code.klein.demo.repository;
++
++import code.klein.demo.entity.User;
++import org.springframework.data.jpa.repository.JpaRepository;
++
++import java.util.Optional;
++
++public interface UserRepository extends JpaRepository<User, Long> {
++
++    Optional<User> findUserByUsername(String username);
++
++    Optional<User> findUserByEmail(String email);
++
++    boolean existsByUsername(String username);
++
++    boolean existsByEmail(String email);
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PropertiesComponent\">{}</component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ef4ff33b238eca92e152545994fe1da0ac1b1dc1)
++++ b/.idea/workspace.xml	(date 1743417446019)
+@@ -1,4 +1,161 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="PropertiesComponent">{}</component>
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="ide, git, temp_files">
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/UserRepository.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/DemoService.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Interface" />
++        <option value="Class" />
++        <option value="Record" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "kostushaaa"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/kostushaaa/AntiQue.git",
++    "accountId": "79dff90b-b3a6-4910-8a14-c5fc1b05bdd7"
++  }
++}]]></component>
++  <component name="HttpClientEndpointsTabState">
++    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;867157f9164da815485ab872643ab56eaa836454&quot; value=&quot;###&amp;#10;POST http://localhost:8080/users&amp;#10;Content-Type: application/json&amp;#10;&amp;#10;{&amp;#10;  &amp;quot;username&amp;quot;: &amp;quot;&amp;quot;,&amp;#10;  &amp;quot;email&amp;quot;: &amp;quot;&amp;quot;&amp;#10;}&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
++  </component>
++  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
++  <component name="KubernetesApiProvider"><![CDATA[{
++  "isMigrated": true
++}]]></component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "customColor": "",
++  "associatedIndex": 1
++}]]></component>
++  <component name="ProjectId" id="2v4sWIqfahn90UDx7VEJpIrtilg" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Docker.antique_docker.postgres: Compose Deployment.executor": "Run",
++    "RequestMappingsPanelOrder0": "0",
++    "RequestMappingsPanelOrder1": "1",
++    "RequestMappingsPanelWidth0": "75",
++    "RequestMappingsPanelWidth1": "75",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "Spring Boot.DemoApplication.executor": "Run",
++    "git-widget-placeholder": "master",
++    "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
++  <component name="RunManager" selected="Spring Boot.DemoApplication">
++    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
++      <module name="demo" />
++      <option name="SPRING_BOOT_MAIN_CLASS" value="code.klein.demo.DemoApplication" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
++      <deployment type="docker-compose.yml" />
++      <method v="2" />
++    </configuration>
++    <configuration name="antique_docker.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
++      <deployment type="docker-compose.yml">
++        <settings>
++          <option name="services">
++            <list>
++              <option value="postgres" />
++            </list>
++          </option>
++          <option name="sourceFilePath" value="antique_docker/docker-compose.yml" />
++        </settings>
++      </deployment>
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
++        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
++      </set>
++    </attachedChunks>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="" />
++      <created>1743415712415</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1743415712415</updated>
++      <workItem from="1743415714563" duration="1726000" />
++    </task>
++    <task id="LOCAL-00001" summary="ide, git, temp_files">
++      <option name="closed" value="true" />
++      <created>1743415742224</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1743415742224</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="ide, git, temp_files" />
++    <option name="LAST_COMMIT_MESSAGE" value="ide, git, temp_files" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: backend/src/main/java/code/klein/demo/service/DemoService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/service/DemoService.java b/backend/src/main/java/code/klein/demo/service/DemoService.java
+new file mode 100644
+--- /dev/null	(date 1743415991051)
++++ b/backend/src/main/java/code/klein/demo/service/DemoService.java	(date 1743415991051)
+@@ -0,0 +1,8 @@
++package code.klein.demo.service;
++
++import org.springframework.stereotype.Service;
++
++@Service
++public class DemoService {
++
++}
+Index: backend/src/main/java/code/klein/demo/request/CreateUserRequest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java b/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java
+new file mode 100644
+--- /dev/null	(date 1743416763307)
++++ b/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java	(date 1743416763307)
+@@ -0,0 +1,3 @@
++package code.klein.demo.request;
++
++public record CreateUserRequest(String username, String email) {}
+Index: backend/src/main/java/code/klein/demo/controller/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/src/main/java/code/klein/demo/controller/UserController.java b/backend/src/main/java/code/klein/demo/controller/UserController.java
+new file mode 100644
+--- /dev/null	(date 1743416818301)
++++ b/backend/src/main/java/code/klein/demo/controller/UserController.java	(date 1743416818301)
+@@ -0,0 +1,23 @@
++package code.klein.demo.controller;
++
++import code.klein.demo.request.CreateUserRequest;
++import code.klein.demo.service.UserService;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.RequestBody;
++import org.springframework.web.bind.annotation.RestController;
++
++@RestController("")
++public class UserController {
++
++    @Autowired
++    private UserService userService;
++
++    @PostMapping("/users")
++    public ResponseEntity<String> createUser(@RequestBody CreateUserRequest request) {
++        userService.createUser(request.username(), request.email());
++        return ResponseEntity.ok("User created");
++    }
++
++}
