@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>764</IntrospectionStateNumber>
+      <IntrospectionStateNumber>786</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
       <StartupTime>1743417127</StartupTime>
       <TimeZones>true ACDT
@@ -1399,7 +1399,7 @@ true posixrules
 13219||10|C|G
 13219||-9223372036854775808|U|G
 13219||10|U|G</Grants>
-      <IntrospectionStateNumber>764</IntrospectionStateNumber>
+      <IntrospectionStateNumber>786</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>antique_adept</OwnerName>
     </database>
@@ -4826,249 +4826,244 @@ true posixrules
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>764</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-04-02.06:53:12</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>786</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-04-02.07:36:22</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="266" parent="265" name="cars_id_seq">
-      <ObjectId>16397</ObjectId>
+      <ObjectId>16424</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>760</StateNumber>
-      <StoredType>bigint|0s</StoredType>
+      <StateNumber>780</StateNumber>
+      <StoredType>integer|0s</StoredType>
       <OwnerName>antique_adept</OwnerName>
     </sequence>
     <sequence id="267" parent="265" name="users_id_seq">
-      <ObjectId>16385</ObjectId>
+      <ObjectId>16441</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>antique_adept</OwnerName>
     </sequence>
     <table id="268" parent="265" name="cars">
-      <ObjectId>16398</ObjectId>
-      <StateNumber>760</StateNumber>
+      <ObjectId>16425</ObjectId>
+      <StateNumber>784</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>antique_adept</OwnerName>
     </table>
     <table id="269" parent="265" name="flyway_schema_history">
-      <ObjectId>16406</ObjectId>
-      <StateNumber>761</StateNumber>
+      <ObjectId>16415</ObjectId>
+      <StateNumber>779</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>antique_adept</OwnerName>
     </table>
     <table id="270" parent="265" name="users">
-      <ObjectId>16386</ObjectId>
-      <StateNumber>746</StateNumber>
+      <ObjectId>16442</ObjectId>
+      <StateNumber>785</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>antique_adept</OwnerName>
     </table>
-    <check id="271" parent="268" name="cars_currency_check">
-      <ColNames>currency</ColNames>
-      <ObjectId>16401</ObjectId>
-      <Predicate>(currency)::text = ANY ((ARRAY[&apos;EUR&apos;::character varying, &apos;USD&apos;::character varying, &apos;UAH&apos;::character varying, &apos;RUB&apos;::character varying])::text[])</Predicate>
-      <StateNumber>760</StateNumber>
-    </check>
-    <column id="272" parent="268" name="id">
-      <IdentityKind>by-default</IdentityKind>
+    <column id="271" parent="268" name="id">
+      <DefaultExpression>nextval(&apos;cars_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>760</StateNumber>
+      <StateNumber>782</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>16397</SequenceId>
+      <SequenceId>16424</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="273" parent="268" name="brand">
+    <column id="272" parent="268" name="brand">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>760</StateNumber>
+      <StateNumber>783</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="274" parent="268" name="created_at">
+    <column id="273" parent="268" name="model_name">
+      <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>760</StateNumber>
-      <StoredType>timestamp(6)|0s</StoredType>
-      <TypeId>1114</TypeId>
+      <StateNumber>784</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="275" parent="268" name="currency">
+    <column id="274" parent="268" name="price_per_day">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>760</StateNumber>
+      <StateNumber>780</StateNumber>
+      <StoredType>numeric(10,2 digit)|0s</StoredType>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="275" parent="268" name="price_per_km">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>780</StateNumber>
+      <StoredType>numeric(10,2 digit)|0s</StoredType>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="276" parent="268" name="currency">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>780</StateNumber>
       <StoredType>varchar(3)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="268" name="model_name">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>760</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="277" parent="268" name="price_per_day">
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StateNumber>760</StateNumber>
-      <StoredType>numeric(10,2 digit)|0s</StoredType>
-      <TypeId>1700</TypeId>
-    </column>
-    <column id="278" parent="268" name="price_per_km">
-      <NotNull>1</NotNull>
+    <column id="277" parent="268" name="created_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>7</Position>
-      <StateNumber>760</StateNumber>
-      <StoredType>numeric(10,2 digit)|0s</StoredType>
-      <TypeId>1700</TypeId>
-    </column>
-    <index id="279" parent="268" name="cars_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16404</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>760</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="280" parent="268" name="cars_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16405</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>760</StateNumber>
-      <UnderlyingIndexId>16404</UnderlyingIndexId>
-    </key>
-    <column id="281" parent="269" name="installed_rank">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="282" parent="269" name="version">
-      <Position>2</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>varchar(50)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="283" parent="269" name="description">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>varchar(200)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="284" parent="269" name="type">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>varchar(20)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="285" parent="269" name="script">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>varchar(1000)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="286" parent="269" name="checksum">
-      <Position>6</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="287" parent="269" name="installed_by">
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StateNumber>761</StateNumber>
-      <StoredType>varchar(100)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="288" parent="269" name="installed_on">
-      <DefaultExpression>now()</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>780</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="289" parent="269" name="execution_time">
+    <index id="278" parent="268" name="cars_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16433</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>782</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="279" parent="268" name="cars_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16434</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>782</StateNumber>
+      <UnderlyingIndexId>16433</UnderlyingIndexId>
+    </key>
+    <column id="280" parent="269" name="installed_rank">
       <NotNull>1</NotNull>
-      <Position>9</Position>
-      <StateNumber>761</StateNumber>
+      <Position>1</Position>
+      <StateNumber>779</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="290" parent="269" name="success">
+    <column id="281" parent="269" name="version">
+      <Position>2</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar(50)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="282" parent="269" name="description">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar(200)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="283" parent="269" name="type">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar(20)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="284" parent="269" name="script">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar(1000)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="285" parent="269" name="checksum">
+      <Position>6</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="286" parent="269" name="installed_by">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar(100)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="287" parent="269" name="installed_on">
+      <DefaultExpression>now()</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="288" parent="269" name="execution_time">
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="289" parent="269" name="success">
       <NotNull>1</NotNull>
       <Position>10</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>779</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="291" parent="269" name="flyway_schema_history_pk">
+    <index id="290" parent="269" name="flyway_schema_history_pk">
       <ColNames>installed_rank</ColNames>
-      <ObjectId>16412</ObjectId>
+      <ObjectId>16421</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
+      <StateNumber>779</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="292" parent="269" name="flyway_schema_history_s_idx">
+    <index id="291" parent="269" name="flyway_schema_history_s_idx">
       <ColNames>success</ColNames>
-      <ObjectId>16414</ObjectId>
-      <StateNumber>761</StateNumber>
+      <ObjectId>16423</ObjectId>
+      <StateNumber>779</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="293" parent="269" name="flyway_schema_history_pk">
-      <ObjectId>16413</ObjectId>
+    <key id="292" parent="269" name="flyway_schema_history_pk">
+      <ObjectId>16422</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
-      <UnderlyingIndexId>16412</UnderlyingIndexId>
+      <StateNumber>779</StateNumber>
+      <UnderlyingIndexId>16421</UnderlyingIndexId>
     </key>
-    <column id="294" parent="270" name="id">
+    <column id="293" parent="270" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>16385</SequenceId>
+      <SequenceId>16441</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="295" parent="270" name="created_at">
+    <column id="294" parent="270" name="created_at">
       <Position>2</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <StoredType>timestamp(6)|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="296" parent="270" name="email">
+    <column id="295" parent="270" name="email">
       <Position>3</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="297" parent="270" name="username">
+    <column id="296" parent="270" name="username">
       <Position>4</Position>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="298" parent="270" name="users_pkey">
+    <index id="297" parent="270" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16391</ObjectId>
+      <ObjectId>16447</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
+      <StateNumber>785</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="299" parent="270" name="users_pkey">
+    <key id="298" parent="270" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16392</ObjectId>
+      <ObjectId>16448</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>746</StateNumber>
-      <UnderlyingIndexId>16391</UnderlyingIndexId>
+      <StateNumber>785</StateNumber>
+      <UnderlyingIndexId>16447</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
