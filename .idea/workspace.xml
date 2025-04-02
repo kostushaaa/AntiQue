@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="ide, git, temp_files">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/DemoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="User entity, JPA repository, User Service, Rest Post Controller">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/UpdateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__create_cars_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/code/klein/demo/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/code/klein/demo/controller/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,37 +26,49 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "kostushaaa"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kostushaaa&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/kostushaaa/AntiQue.git",
     "accountId": "79dff90b-b3a6-4910-8a14-c5fc1b05bdd7"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "kostushaaa",
+    "repository": "AntiQue"
   }
 }]]></component>
-  <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;867157f9164da815485ab872643ab56eaa836454&quot; value=&quot;###&amp;#10;POST http://localhost:8080/users&amp;#10;Content-Type: application/json&amp;#10;&amp;#10;{&amp;#10;  &amp;quot;username&amp;quot;: &amp;quot;&amp;quot;,&amp;#10;  &amp;quot;email&amp;quot;: &amp;quot;&amp;quot;&amp;#10;}&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
-  </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2v4sWIqfahn90UDx7VEJpIrtilg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -70,7 +84,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.DemoApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "#3 on dev/AQ-3",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -80,6 +94,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="code.klein.demo.request" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
@@ -127,7 +146,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743415712415</updated>
-      <workItem from="1743415714563" duration="1726000" />
+      <workItem from="1743415714563" duration="5947000" />
     </task>
     <task id="LOCAL-00001" summary="ide, git, temp_files">
       <option name="closed" value="true" />
@@ -137,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743415742224</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="User entity, JPA repository, User Service, Rest Post Controller">
+      <option name="closed" value="true" />
+      <created>1743417654080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743417654080</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +183,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ide, git, temp_files" />
-    <option name="LAST_COMMIT_MESSAGE" value="ide, git, temp_files" />
+    <MESSAGE value="User entity, JPA repository, User Service, Rest Post Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="User entity, JPA repository, User Service, Rest Post Controller" />
   </component>
 </project>
