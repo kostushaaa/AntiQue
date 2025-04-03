@@ -1,8 +1,10 @@
-package code.klein.demo.request;
+package code.klein.demo.request.user;
 
 import java.time.LocalDate;
 
-public record CreateUserRequest(
+public record UpdateUserRequest(
+        String lastUsername,
+        String lastEmail,
         String username,
         String email,
         String firstName,
@@ -11,5 +13,6 @@ public record CreateUserRequest(
         String city,
         String postalCode,
         String country,
-        LocalDate birthDate
+        LocalDate birthDate,
+        Long companyId
 ) {}

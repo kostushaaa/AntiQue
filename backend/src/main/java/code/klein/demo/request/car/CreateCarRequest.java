@@ -1,11 +1,12 @@
-package code.klein.demo.request;
+package code.klein.demo.request.car;
 
 import code.klein.demo.entity.Car.CurrencyCode;
+import lombok.Builder;
 
 import java.math.BigDecimal;
 
-public record EditCarRequest(
-        Long id,
+@Builder
+public record CreateCarRequest(
         String brand,
         String modelName,
         BigDecimal pricePerDay,

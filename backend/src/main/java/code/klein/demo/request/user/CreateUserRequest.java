@@ -1,10 +1,12 @@
-package code.klein.demo.request;
+package code.klein.demo.request.user;
+
+import jakarta.annotation.Nullable;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
-public record UpdateUserRequest(
-        String lastUsername,
-        String lastEmail,
+@Builder
+public record CreateUserRequest(
         String username,
         String email,
         String firstName,
@@ -13,5 +15,6 @@ public record UpdateUserRequest(
         String city,
         String postalCode,
         String country,
-        LocalDate birthDate
-) {}
+        LocalDate birthDate,
+        @Nullable Long companyId
+        ) {}

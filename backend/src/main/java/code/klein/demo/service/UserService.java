@@ -2,9 +2,10 @@ package code.klein.demo.service;
 
 import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
-import code.klein.demo.request.CreateUserRequest;
-import code.klein.demo.request.UpdateUserRequest;
+import code.klein.demo.request.user.CreateUserRequest;
+import code.klein.demo.request.user.UpdateUserRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.InvalidParameterException;
 
@@ -17,6 +18,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public User createUser(CreateUserRequest request) {
         if (isBlank(request.username()) || isBlank(request.email())) {
             throw new InvalidParameterException("Username and email are required");
@@ -41,6 +43,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    @Transactional
     public User updateUser(UpdateUserRequest request) {
         if (isBlank(request.lastUsername()) || isBlank(request.lastEmail()) ||
                 isBlank(request.username()) || isBlank(request.email())) {

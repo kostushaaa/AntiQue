@@ -1,8 +1,8 @@
 package code.klein.demo.controller;
 
 import code.klein.demo.entity.User;
-import code.klein.demo.request.CreateUserRequest;
-import code.klein.demo.request.UpdateUserRequest;
+import code.klein.demo.request.user.CreateUserRequest;
+import code.klein.demo.request.user.UpdateUserRequest;
 import code.klein.demo.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
