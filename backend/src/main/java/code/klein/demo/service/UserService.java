@@ -2,12 +2,18 @@ package code.klein.demo.service;
 
 import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
-import code.klein.demo.request.user.CreateUserRequest;
-import code.klein.demo.request.user.UpdateUserRequest;
+import code.klein.demo.request.CreateUserRequest;
+import code.klein.demo.request.UpdateUserRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.InvalidParameterException;
+import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -80,4 +86,16 @@ public class UserService {
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }
+
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getUsername(),
+                user.getPassword(),
+                Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getAuthorities()))
+        );
+    }
+
 }

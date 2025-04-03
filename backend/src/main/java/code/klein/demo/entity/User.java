@@ -1,11 +1,15 @@
 package code.klein.demo.entity;
 
+import code.klein.demo.config.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -19,11 +23,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(unique = true)
     private String username;
 
-    @Column(nullable = false)
+    @Column(unique = true)
     private String email;
+
+    @JsonIgnore
+    private String password;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -49,4 +56,13 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @Getter
+    private Set<Role> authorities;
+
+    private boolean accountNonExpired;
+    private boolean isEnabled;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+
 }
