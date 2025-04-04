@@ -2,54 +2,77 @@ package code.klein.demo.service;
 
 import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import code.klein.demo.request.user.CreateUserRequest;
+import code.klein.demo.request.user.UpdateUserRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.InvalidParameterException;
-import java.util.Optional;
 
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public User createUser(final String username, final String email) {
-        if (isBlank(username) || isBlank(email)) {
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Transactional
+    public User createUser(CreateUserRequest request) {
+        if (isBlank(request.username()) || isBlank(request.email())) {
             throw new InvalidParameterException("Username and email are required");
         }
 
-        if (userRepository.existsByUsername(username) || userRepository.existsByEmail(email)) {
+        if (userRepository.existsByUsername(request.username()) || userRepository.existsByEmail(request.email())) {
             throw new InvalidParameterException("User with given username or email already exists");
         }
 
         User user = User.builder()
-                .username(username)
-                .email(email)
+                .username(request.username())
+                .email(request.email())
+                .firstName(request.firstName())
+                .lastName(request.lastName())
+                .street(request.street())
+                .city(request.city())
+                .postalCode(request.postalCode())
+                .country(request.country())
+                .birthDate(request.birthDate())
                 .build();
 
         return userRepository.save(user);
     }
 
-    public User updateUser(final String lastUsername, final String lastEmail, final String username, final String email) {
-        if (isBlank(lastUsername) || isBlank(lastEmail) || isBlank(username) || isBlank(email)) {
+    @Transactional
+    public User updateUser(UpdateUserRequest request) {
+        if (isBlank(request.lastUsername()) || isBlank(request.lastEmail()) ||
+                isBlank(request.username()) || isBlank(request.email())) {
             throw new InvalidParameterException("Username and email are required");
         }
 
-        User user = userRepository.findUserByUsername(lastUsername)
-                .filter(u -> u.getEmail().equals(lastEmail))
+        User user = userRepository.findUserByUsername(request.lastUsername())
+                .filter(u -> u.getEmail().equals(request.lastEmail()))
                 .orElseThrow(() -> new InvalidParameterException("User with given current credentials does not exist"));
 
-        if (!lastUsername.equals(username) && userRepository.existsByUsername(username)) {
+        if (!request.lastUsername().equals(request.username()) &&
+                userRepository.existsByUsername(request.username())) {
             throw new InvalidParameterException("Username is already taken");
         }
 
-        if (!lastEmail.equals(email) && userRepository.existsByEmail(email)) {
+        if (!request.lastEmail().equals(request.email()) &&
+                userRepository.existsByEmail(request.email())) {
             throw new InvalidParameterException("Email is already taken");
         }
 
-        user.setUsername(username);
-        user.setEmail(email);
+        user.setUsername(request.username());
+        user.setEmail(request.email());
+        user.setFirstName(request.firstName());
+        user.setLastName(request.lastName());
+        user.setStreet(request.street());
+        user.setCity(request.city());
+        user.setPostalCode(request.postalCode());
+        user.setCountry(request.country());
+        user.setBirthDate(request.birthDate());
 
         return userRepository.save(user);
     }
@@ -57,5 +80,4 @@ public class UserService {
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }
-
 }

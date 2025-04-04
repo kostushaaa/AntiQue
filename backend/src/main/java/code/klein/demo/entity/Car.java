@@ -39,6 +39,10 @@ public class Car {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     public enum CurrencyCode {
         EUR, USD, UAH, RUB
     }

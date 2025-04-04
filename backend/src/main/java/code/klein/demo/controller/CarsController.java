@@ -1,8 +1,8 @@
 package code.klein.demo.controller;
 
 import code.klein.demo.entity.Car;
-import code.klein.demo.request.CreateCarRequest;
-import code.klein.demo.request.EditCarRequest;
+import code.klein.demo.request.car.CreateCarRequest;
+import code.klein.demo.request.car.UpdateCarRequest;
 import code.klein.demo.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class CarsController {
     @Autowired
     private CarService carService;
 
-    @GetMapping("cars/")
+    @GetMapping("cars")
     public ResponseEntity<List<Car>> getCars() {
         return ResponseEntity.ok(carService.getCars());
     }
@@ -26,14 +26,14 @@ public class CarsController {
         return ResponseEntity.ok(carService.createCar(request));
     }
 
-    @GetMapping("cars/get")
-    public ResponseEntity<Car> getCar(@RequestParam Long id) {
+    @GetMapping("cars/{id}")
+    public ResponseEntity<Car> getCar(@PathVariable Long id) {
         Car car = carService.getCarById(id);
         return ResponseEntity.ok(car);
     }
 
     @PutMapping("cars/edit")
-    public ResponseEntity<Car> updateCar(@RequestBody EditCarRequest request) {
+    public ResponseEntity<Car> updateCar(@RequestBody UpdateCarRequest request) {
         Car updatedCar = carService.updateCar(request);
         return ResponseEntity.ok(updatedCar);
     }
