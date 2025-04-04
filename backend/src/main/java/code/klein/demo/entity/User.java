@@ -10,21 +10,28 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
 @Data
 @Table(name = "users")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID UuId;
+    @Column(unique = true, updatable = false)
+    private String uuid = UUID.randomUUID().toString();
 
     @Column(unique = true)
     private String username;
