@@ -38,8 +38,8 @@ public class AntiQueApplication {
 
             final var employee3 = CreateUserRequest.builder().username("spiegel_timon").email("timon.spiegel@example.com").firstName("Timon").lastName("Spiegel").street("Maximilianstraße 22").city("Munich").postalCode("80539").country("Germany").birthDate(LocalDate.of(1992, 11, 5)).build();
 
-            final var companyRequest = new CreateCompanyRequest("AntiQue", userService.createUser(director).getId(), // id от ранее созданного директора "kostushaaa"
-                    List.of(userService.createUser(employee1).getId(), userService.createUser(employee2).getId(), userService.createUser(employee3).getId()) // id'шники работников после сохранения
+            final var companyRequest = new CreateCompanyRequest("AntiQue", userService.createUser(director).getId(),
+                    List.of(userService.createUser(employee1).getId(), userService.createUser(employee2).getId(), userService.createUser(employee3).getId())
             );
             final var company = companyService.createCompany(companyRequest);
 

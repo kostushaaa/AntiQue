@@ -1,0 +1,16 @@
+<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1743750934456" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/public.abK9xQ.meta" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/pg_catalog.0S1ZNQ.meta" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q/schema/information_schema.FNRwLQ.meta" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060/storage_v2/_src_/database/antique_bd.Yugl0Q.meta" />
+  </binary>
+</changelist>

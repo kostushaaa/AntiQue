@@ -2,8 +2,8 @@ package code.klein.demo.service;
 
 import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
-import code.klein.demo.request.CreateUserRequest;
-import code.klein.demo.request.UpdateUserRequest;
+import code.klein.demo.request.user.CreateUserRequest;
+import code.klein.demo.request.user.UpdateUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
