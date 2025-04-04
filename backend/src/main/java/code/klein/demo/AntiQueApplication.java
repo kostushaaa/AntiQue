@@ -12,12 +12,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
+//@EnableJpaAuditing(auditorAwareRef = "auditorAware")
+@CrossOrigin(origins = {"http://localhost:8080", "http://localhost:5173", "http://127.0.0.1:5173"})
 public class AntiQueApplication {
 
     public static void main(String[] args) {
