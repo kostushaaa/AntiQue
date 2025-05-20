@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -33,6 +34,7 @@ public class User {
     @Column(unique = true, updatable = false)
     private String uuid = UUID.randomUUID().toString();
 
+
     @Column(unique = true)
     private String username;
 
@@ -46,7 +48,14 @@ public class User {
     private LocalDateTime createdAt;
 
     @Getter
-    private Set<Role> authorities;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "user_authorities",
+            joinColumns = @JoinColumn(name = "user_id")
+    )
+    @Column(name = "authorities")
+    @Enumerated(EnumType.STRING)
+    private Set<Role> authorities = new HashSet<>();
 
     private boolean accountNonExpired;
     private boolean isEnabled;
