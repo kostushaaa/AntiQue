@@ -30,7 +30,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         String path = request.getRequestURI();
 
-        // 💡 Diese Pfade sind explizit freigegeben – kein Auth-Check
         if (path.equals("/") ||
                 path.equals("/auth/login") ||
                 path.startsWith("/auth/") ||
@@ -50,7 +49,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 username = jwtUtil.extractUsername(jwt);
             } catch (Exception e) {
-                // Optional: Log JWT Parsing Fehler
             }
         }
 

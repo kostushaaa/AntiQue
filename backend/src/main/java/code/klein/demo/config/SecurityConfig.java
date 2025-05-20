@@ -33,12 +33,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
             http
                     .csrf(AbstractHttpConfigurer::disable)
                     .authorizeHttpRequests(auth -> auth
-                            .anyRequest().permitAll()
+                            .requestMatchers("/auth/**",
+                                    "/",
+                                    "/swagger-ui/**",
+                                    "/v3/api-docs/**")
+                            .permitAll()
+                            .anyRequest().authenticated()
                     )
                     .sessionManagement(session -> session
                             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     )
-                    .authenticationProvider(authenticationProvider()); // 👈 ganz wichtig
+                    .authenticationProvider(authenticationProvider());
 
             http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
