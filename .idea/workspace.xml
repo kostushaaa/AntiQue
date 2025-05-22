@@ -4,15 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="add request matchers">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2_create_admin.sql" afterDir="false" />
+    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="add register auth">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/BookingDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/BookingMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/BookingStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/BookingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/BookingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateBookingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V4_create_booking_table.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2_create_users_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2_create_users_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="5-user-api-crud-functionality" />
+        <entry key="$PROJECT_DIR$" value="SignIn/SignUp" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,7 +114,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AntiQueApplication.executor": "Run",
     "Spring Boot.DemoApplication.executor": "Debug",
-    "git-widget-placeholder": "SignIn/SignUp",
+    "git-widget-placeholder": "BookingService",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -193,7 +207,7 @@
       <updated>1743415712415</updated>
       <workItem from="1743415714563" duration="11440000" />
       <workItem from="1743577659565" duration="4746000" />
-      <workItem from="1747742142748" duration="15276000" />
+      <workItem from="1747742142748" duration="38261000" />
     </task>
     <task id="LOCAL-00001" summary="ide, git, temp_files">
       <option name="closed" value="true" />
@@ -267,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747752232936</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add register auth">
+      <option name="closed" value="true" />
+      <created>1747770592322</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747770592322</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +314,8 @@
     <MESSAGE value="implemented Login authentication" />
     <MESSAGE value="refactor Login authentication" />
     <MESSAGE value="add request matchers" />
-    <option name="LAST_COMMIT_MESSAGE" value="add request matchers" />
+    <MESSAGE value="add register auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="add register auth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,9 +331,34 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

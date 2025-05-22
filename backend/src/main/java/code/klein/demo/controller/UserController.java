@@ -1,5 +1,8 @@
 package code.klein.demo.controller;
 
+import code.klein.demo.DTO.UserDto;
+import code.klein.demo.DTO.UserMapper;
+import code.klein.demo.entity.User;
 import code.klein.demo.request.CreateUserRequest;
 import code.klein.demo.request.UpdateUserRequest;
 import code.klein.demo.service.UserService;
@@ -16,15 +19,18 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("users/create")
-    public ResponseEntity<String> createUser(@RequestBody CreateUserRequest request) {
-        userService.createUser(request.username(), request.email());
-        return ResponseEntity.ok("User created");
+    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserRequest request) {
+        User createdUser = userService.createUser(request.username(), request.email());
+        return ResponseEntity.ok(UserMapper.toDto(createdUser));
     }
 
     @PostMapping("users/update")
-    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request) {
-        userService.updateUser(request.lastUsername(), request.lastEmail(), request.username(), request.email());
-        return ResponseEntity.ok("User updated");
+    public ResponseEntity<UserDto> updateUser(@RequestBody UpdateUserRequest request) {
+        User updatedUser = userService.updateUser(
+                request.lastUsername(), request.lastEmail(),
+                request.username(), request.email()
+        );
+        return ResponseEntity.ok(UserMapper.toDto(updatedUser));
     }
 
 }

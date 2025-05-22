@@ -71,7 +71,14 @@ public class UserService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
-                Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getAuthorities()))
+                user.getAuthorities().stream()
+                        .map(role -> new SimpleGrantedAuthority(role.name()))
+                        .toList()
         );
+    }
+
+    public User getEntityByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 }

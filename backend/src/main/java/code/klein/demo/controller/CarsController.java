@@ -1,5 +1,7 @@
 package code.klein.demo.controller;
 
+import code.klein.demo.DTO.CarDto;
+import code.klein.demo.DTO.CarMapper;
 import code.klein.demo.entity.Car;
 import code.klein.demo.request.CreateCarRequest;
 import code.klein.demo.request.EditCarRequest;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController()
 public class CarsController {
@@ -17,25 +20,27 @@ public class CarsController {
     private CarService carService;
 
     @GetMapping("cars/")
-    public ResponseEntity<List<Car>> getCars() {
-        return ResponseEntity.ok(carService.getCars());
+    public ResponseEntity<List<CarDto>> getCars() {
+        List<CarDto> carDtos = carService.getCars()
+                .stream()
+                .map(CarMapper::toDto)
+                .toList();
+        return ResponseEntity.ok(carDtos);
     }
 
     @PostMapping("cars/new")
-    public ResponseEntity<Car> addCar(@RequestBody CreateCarRequest request) {
-        return ResponseEntity.ok(carService.createCar(request));
+    public ResponseEntity<CarDto> addCar(@RequestBody CreateCarRequest request) {
+        return ResponseEntity.ok(CarMapper.toDto(carService.createCar(request)));
     }
 
     @GetMapping("cars/get")
-    public ResponseEntity<Car> getCar(@RequestParam Long id) {
-        Car car = carService.getCarById(id);
-        return ResponseEntity.ok(car);
+    public ResponseEntity<CarDto> getCar(@RequestParam Long id) {
+        return ResponseEntity.ok(CarMapper.toDto(carService.getCarById(id)));
     }
 
     @PutMapping("cars/edit")
-    public ResponseEntity<Car> updateCar(@RequestBody EditCarRequest request) {
-        Car updatedCar = carService.updateCar(request);
-        return ResponseEntity.ok(updatedCar);
+    public ResponseEntity<CarDto> updateCar(@RequestBody EditCarRequest request) {
+        return ResponseEntity.ok(CarMapper.toDto(carService.updateCar(request)));
     }
 
 }
