@@ -5,12 +5,18 @@ import code.klein.demo.DTO.UserMapper;
 import code.klein.demo.entity.User;
 import code.klein.demo.request.CreateUserRequest;
 import code.klein.demo.request.UpdateUserRequest;
+import code.klein.demo.request.UpdateUserRoleRequest;
 import code.klein.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController()
 public class UserController {
@@ -33,4 +39,20 @@ public class UserController {
         return ResponseEntity.ok(UserMapper.toDto(updatedUser));
     }
 
+    @GetMapping("/admin/all")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        List<UserDto> userDtos = users.stream()
+                .map(UserMapper::toDto)
+                .toList();
+        return ResponseEntity.ok(userDtos);
+    }
+
+    @PostMapping("/admin/role")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserDto> updateUserRole(@RequestBody UpdateUserRoleRequest request) {
+        User user = userService.updateUserRole(request.username(), request.role());
+        return ResponseEntity.ok(UserMapper.toDto(user));
+    }
 }

@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="add register auth">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/BookingDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/BookingMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/BookingStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/BookingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/BookingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/CreateBookingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V4_create_booking_table.sql" afterDir="false" />
+    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="add admin and admin change roles apis">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/UpdateUserRoleRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/test/tester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V5_update_admin_passwort.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +87,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.test.executor": "Run",
+    "Application.tester.executor": "Run",
     "Docker.antique_docker.postgres: Compose Deployment.executor": "Run",
     "Docker.antique_docker: Compose Deployment.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -153,6 +139,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="code.klein.demo.test.tester" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="code.klein.demo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="code.klein.demo.AntiQueApplication" />
@@ -189,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.tester" />
         <item itemvalue="Application.test" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
-        <item itemvalue="Docker.antique_docker: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +206,7 @@
       <updated>1743415712415</updated>
       <workItem from="1743415714563" duration="11440000" />
       <workItem from="1743577659565" duration="4746000" />
-      <workItem from="1747742142748" duration="38261000" />
+      <workItem from="1747742142748" duration="44706000" />
     </task>
     <task id="LOCAL-00001" summary="ide, git, temp_files">
       <option name="closed" value="true" />
@@ -289,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747770592322</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add dtos, and booking service">
+      <option name="closed" value="true" />
+      <created>1747955519752</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747955519752</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,21 +322,13 @@
     <MESSAGE value="refactor Login authentication" />
     <MESSAGE value="add request matchers" />
     <MESSAGE value="add register auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="add register auth" />
+    <MESSAGE value="Add dtos, and booking service" />
+    <MESSAGE value="add admin and admin change roles apis" />
+    <option name="LAST_COMMIT_MESSAGE" value="add admin and admin change roles apis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java</url>
           <line>31</line>
@@ -359,6 +358,11 @@
           <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java</url>
           <line>20</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

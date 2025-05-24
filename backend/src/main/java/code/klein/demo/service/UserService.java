@@ -1,5 +1,6 @@
 package code.klein.demo.service;
 
+import code.klein.demo.config.Role;
 import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.InvalidParameterException;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -59,6 +61,21 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    public User updateUserRole(String username, String role) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+
+        try {
+            Role newRole = Role.valueOf(role.toUpperCase());
+            user.getAuthorities().clear();
+            user.getAuthorities().add(newRole);
+        } catch (IllegalArgumentException e) {
+            throw new InvalidParameterException("Invalid role: " + role);
+        }
+
+        return userRepository.save(user);
+    }
+
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }
@@ -80,5 +97,9 @@ public class UserService implements UserDetailsService {
     public User getEntityByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
