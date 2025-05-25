@@ -14,6 +14,10 @@
       <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/AuditLogService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserDetailsServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V6_create_audit_logs_table.sql" afterDir="false" />
+    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="User CRUD operations">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" beforeDir="false" />
+    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="Update springdoc-openapi dependency version and modify UserController to use PUT for update operation">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/company/EditCompanyRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" afterDir="false" />
@@ -40,10 +44,12 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
+        <entry key="$PROJECT_DIR$" value="BookingService" />
         <entry key="$PROJECT_DIR$" value="SignIn/SignUp" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -106,7 +112,6 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AntiQueApplication.executor": "Run",
     "Spring Boot.DemoApplication.executor": "Debug",
     "git-widget-placeholder": "BookingService",
@@ -124,7 +129,7 @@
       "postgresql"
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="code.klein.demo.controller" />
@@ -134,6 +139,8 @@
       <recent name="code.klein.demo.request" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="AntiQueApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
   <component name="RunManager" selected="Spring Boot.DemoApplication">
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="code.klein.demo.test.test" />
@@ -199,6 +206,7 @@
       <list>
         <item itemvalue="Application.tester" />
         <item itemvalue="Application.test" />
+        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
         <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
@@ -314,6 +322,7 @@
       <updated>1748112502575</updated>
     </task>
     <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +343,7 @@
     <MESSAGE value="ide, git, temp_files" />
     <MESSAGE value="User entity, JPA repository, User Service, Rest Post Controller" />
     <MESSAGE value="User CRUD operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="User CRUD operations" />
     <MESSAGE value="first implementations of authentication" />
     <MESSAGE value="implemented Login authentication" />
     <MESSAGE value="refactor Login authentication" />
