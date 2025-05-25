@@ -1,0 +1,75 @@
+# ----------------------------------------
+# Java + Spring Boot
+# ----------------------------------------
+/target/
+/build/
+/out/
+*.class
+*.jar
+*.war
+*.log
+*.iml
+*.h2.db
+*.mv.db
+
+# ----------------------------------------
+# IntelliJ IDEA
+# ----------------------------------------
+.idea/
+*.iws
+*.ipr
+*.iml
+*.sw?
+
+# Behalte Project-Dateien, aber nicht workspace
+!.idea/modules.xml
+!.idea/vcs.xml
+!.idea/misc.xml
+!.idea/compiler.xml
+!.idea/encodings.xml
+!.idea/jarRepositories.xml
+.idea/workspace.xml
+
+# ----------------------------------------
+# OS-spezifisch
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------
+# Node (für Frontend)
+# ----------------------------------------
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Falls das Frontend noch nicht in /frontend liegt:
+**/node_modules/
+**/dist/
+**/build/
+
+# ----------------------------------------
+# Docker
+# ----------------------------------------
+*.env
+.env.local
+.env.*.local
+docker-compose.override.yml
+
+# ----------------------------------------
+# Logs
+# ----------------------------------------
+logs/
+*.log
+
+# ----------------------------------------
+# VSCode (falls du's nutzt)
+# ----------------------------------------
+.vscode/
+.history/
+
+# ----------------------------------------
+# Test output
+# ----------------------------------------
+/coverage/
+*.lcov

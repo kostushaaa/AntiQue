@@ -4,405 +4,67 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="add admin and admin change roles apis">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuditController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/AuditLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/repository/AuditLogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/GetUserRolesRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/ResetPasswordRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/AuditLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V6_create_audit_logs_table.sql" afterDir="false" />
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="User CRUD operations">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ece22184-aef5-4e63-8540-25695c2d6060.xml" beforeDir="false" />
-    <list default="true" id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="Update springdoc-openapi dependency version and modify UserController to use PUT for update operation">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/company/EditCompanyRequest.java" afterDir="false" />
+    <list default="true" id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Record" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="BookingService" />
-        <entry key="$PROJECT_DIR$" value="SignIn/SignUp" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;kostushaaa&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kostushaaa/AntiQue.git&quot;,
-    &quot;accountId&quot;: &quot;79dff90b-b3a6-4910-8a14-c5fc1b05bdd7&quot;
-  },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
-    },
-    &quot;owner&quot;: &quot;kostushaaa&quot;,
-    &quot;repository&quot;: &quot;AntiQue&quot;
-  }
-}</component>
-  <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests /&gt;" />
-  </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="autoscrollToSource" value="true" />
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2v4sWIqfahn90UDx7VEJpIrtilg" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2xZ6rdqXXmRIshsSB2OR4Q2IWDI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.test.executor": "Run",
-    "Application.tester.executor": "Run",
-    "Docker.antique_docker.postgres: Compose Deployment.executor": "Run",
-    "Docker.antique_docker: Compose Deployment.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
+    "Application.AntiQieApplication.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AntiQueApplication.executor": "Run",
-    "Spring Boot.DemoApplication.executor": "Debug",
-    "git-widget-placeholder": "BookingService",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="code.klein.demo.controller" />
-      <recent name="code.klein.demo.config" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="code.klein.demo.request" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="AntiQueApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="code.klein.demo.test.test" />
+    <configuration name="AntiQieApplication" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="code.klein.demo.AntiQueApplication" />
       <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.klein.demo.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="code.klein.demo.test.tester" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="code.klein.demo.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="code.klein.demo.AntiQueApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="antique_docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="antique_docker/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="antique_docker.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="postgres" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="antique_docker/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.tester" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
-        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
-        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
-        <item itemvalue="Docker.antique_docker.postgres: Compose Deployment" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5129a9e5-2676-4a13-84d0-e013a32bc419" name="Changes" comment="" />
-      <created>1743415712415</created>
+      <changelist id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="" />
+      <created>1748133453760</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1743415712415</updated>
-      <workItem from="1743415714563" duration="11440000" />
-      <workItem from="1743577659565" duration="4746000" />
-      <workItem from="1747742142748" duration="52652000" />
+      <updated>1748133453760</updated>
+      <workItem from="1748133456975" duration="454000" />
     </task>
-    <task id="LOCAL-00001" summary="ide, git, temp_files">
-      <option name="closed" value="true" />
-      <created>1743415742224</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1743415742224</updated>
-    </task>
-    <task id="LOCAL-00002" summary="User entity, JPA repository, User Service, Rest Post Controller">
-      <option name="closed" value="true" />
-      <created>1743417654080</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1743417654080</updated>
-    </task>
-    <task id="LOCAL-00003" summary="User CRUD operations">
-      <option name="closed" value="true" />
-      <created>1743577307597</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1743577307597</updated>
-    </task>
-    <task id="LOCAL-00004" summary="User CRUD operations">
-      <option name="closed" value="true" />
-      <created>1743577516148</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1743577516148</updated>
-    </task>
-    <task id="LOCAL-00005" summary="User CRUD operations">
-      <option name="closed" value="true" />
-      <created>1743579982907</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1743579982907</updated>
-    </task>
-    <task id="LOCAL-00006" summary="first implementations of authentication">
-      <option name="closed" value="true" />
-      <created>1743665278830</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743665278830</updated>
-    </task>
-    <task id="LOCAL-00007" summary="implemented Login authentication">
-      <option name="closed" value="true" />
-      <created>1743750008171</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743750008171</updated>
-    </task>
-    <task id="LOCAL-00008" summary="refactor Login authentication">
-      <option name="closed" value="true" />
-      <created>1747751985381</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1747751985381</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add request matchers">
-      <option name="closed" value="true" />
-      <created>1747752232936</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1747752232936</updated>
-    </task>
-    <task id="LOCAL-00010" summary="add register auth">
-      <option name="closed" value="true" />
-      <created>1747770592322</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1747770592322</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Add dtos, and booking service">
-      <option name="closed" value="true" />
-      <created>1747955519752</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1747955519752</updated>
-    </task>
-    <task id="LOCAL-00012" summary="add admin and admin change roles apis">
-      <option name="closed" value="true" />
-      <created>1748112502575</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1748112502575</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="ide, git, temp_files" />
-    <MESSAGE value="User entity, JPA repository, User Service, Rest Post Controller" />
-    <MESSAGE value="User CRUD operations" />
-    <option name="LAST_COMMIT_MESSAGE" value="User CRUD operations" />
-    <MESSAGE value="first implementations of authentication" />
-    <MESSAGE value="implemented Login authentication" />
-    <MESSAGE value="refactor Login authentication" />
-    <MESSAGE value="add request matchers" />
-    <MESSAGE value="add register auth" />
-    <MESSAGE value="Add dtos, and booking service" />
-    <MESSAGE value="add admin and admin change roles apis" />
-    <option name="LAST_COMMIT_MESSAGE" value="add admin and admin change roles apis" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/User.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java</url>
-          <line>25</line>
-          <properties field="userDetailsService" class="code.klein.demo.component.JwtRequestFilter" />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="user" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

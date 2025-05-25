@@ -77,7 +77,7 @@ public class CarService {
                 .pricePerDay(request.pricePerDay())
                 .pricePerKm(request.pricePerKm())
                 .currency(request.currency())
-                .company(company)
+                .brand(company.toString())
                 .build();
 
         return carRepository.save(car);
