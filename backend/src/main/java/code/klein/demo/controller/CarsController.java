@@ -2,9 +2,8 @@ package code.klein.demo.controller;
 
 import code.klein.demo.DTO.CarDto;
 import code.klein.demo.DTO.CarMapper;
-import code.klein.demo.entity.Car;
-import code.klein.demo.request.CreateCarRequest;
-import code.klein.demo.request.EditCarRequest;
+import code.klein.demo.request.car.CreateCarRequest;
+import code.klein.demo.request.car.UpdateCarRequest;
 import code.klein.demo.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +38,7 @@ public class CarsController {
     }
 
     @PutMapping("cars/edit")
-    public ResponseEntity<CarDto> updateCar(@RequestBody EditCarRequest request) {
+    public ResponseEntity<CarDto> updateCar(@RequestBody UpdateCarRequest request) {
         return ResponseEntity.ok(CarMapper.toDto(carService.updateCar(request)));
     }
 
