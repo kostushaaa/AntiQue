@@ -44,6 +44,7 @@ public class BookingController {
 
         System.out.println("UserDetails: " + userDetails);
 
+
         User user = userService.getEntityByUsername(userDetails.getUsername());
         Car car = carService.getCarById(request.carId());
 
