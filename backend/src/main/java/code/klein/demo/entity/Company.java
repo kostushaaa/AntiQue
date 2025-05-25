@@ -24,9 +24,9 @@ public class Company {
     @JoinColumn(name = "director_id")
     private User director;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany
     private List<User> employees;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "brand")
     private List<Car> cars;
 }

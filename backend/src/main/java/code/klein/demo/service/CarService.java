@@ -61,27 +61,7 @@ public class CarService {
 
         return carRepository.save(car);
     }
-
-    @Transactional
-    public Car registerCar(Long companyId, CreateCarRequest request) {
-        if (isBlank(request.brand()) || isBlank(request.modelName()) || request.pricePerDay() == null || request.pricePerKm() == null || request.currency() == null) {
-            throw new InvalidParameterException("All car fields are required");
-        }
-
-        Company company = companyRepository.findById(companyId)
-                .orElseThrow(() -> new EntityNotFoundException("Company not found with ID " + companyId));
-
-        Car car = Car.builder()
-                .brand(request.brand().trim())
-                .modelName(request.modelName().trim())
-                .pricePerDay(request.pricePerDay())
-                .pricePerKm(request.pricePerKm())
-                .currency(request.currency())
-                .brand(company.toString())
-                .build();
-
-        return carRepository.save(car);
-    }
+    
 
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();

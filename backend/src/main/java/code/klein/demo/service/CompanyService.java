@@ -48,7 +48,6 @@ public class CompanyService {
 
         Company savedCompany = companyRepository.save(company);
 
-        employees.forEach(user -> user.setCompany(savedCompany));
         userRepository.saveAll(employees);
 
         return savedCompany;
@@ -87,7 +86,7 @@ public class CompanyService {
         Company company = companyRepository.findById(companyId)
                 .orElseThrow(() -> new EntityNotFoundException("Company is not found"));
 
-        car.setCompany(company);
+        car.setBrand(company.toString());
         return carRepository.save(car);
     }
 
