@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="init workspace and fix carService">
+    <list default="true" id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="refactor from booking service branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/antique_docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/antique_docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__create_cars_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__create_cars_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2_create_users_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V2_create_users_table.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,21 +29,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AntiQieApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AntiQieApplication.executor": "Debug",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="AntiQieApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="code.klein.demo.AntiQueApplication" />
@@ -81,6 +85,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init workspace and fix carService" />
-    <option name="LAST_COMMIT_MESSAGE" value="init workspace and fix carService" />
+    <MESSAGE value="refactor from booking service branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor from booking service branch" />
   </component>
 </project>
