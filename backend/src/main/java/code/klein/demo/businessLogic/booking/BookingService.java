@@ -49,4 +49,12 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+    public void deleteBookingById(Long id) {
+        if (!bookingRepository.existsById(id)) {
+            throw new IllegalArgumentException("Booking with ID " + id + " does not exist");
+        }
+        bookingRepository.deleteById(id);
+    }
+
+
 }

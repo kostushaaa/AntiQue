@@ -1,5 +1,6 @@
 package code.klein.demo.component;
 
+import code.klein.demo.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,8 +21,10 @@ import java.util.List;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+
+    //@Autowired
+ //   private UserDetailsServiceImpl userDetailsService;
+
 
     @Autowired
     private JwtUtil jwtUtil;

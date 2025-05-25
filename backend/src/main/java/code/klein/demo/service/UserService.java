@@ -8,18 +8,24 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.InvalidParameterException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public User createUser(final String username, final String email) {
         if (isBlank(username) || isBlank(email)) {
@@ -76,23 +82,17 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
+    public void deleteUserByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+        userRepository.delete(user);
+    }
+
+
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }
 
-
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
-
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
-                user.getPassword(),
-                user.getAuthorities().stream()
-                        .map(role -> new SimpleGrantedAuthority(role.name()))
-                        .toList()
-        );
-    }
 
     public User getEntityByUsername(String username) {
         return userRepository.findByUsername(username)
@@ -102,4 +102,21 @@ public class UserService implements UserDetailsService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public void resetPassword(String username, String newPassword) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
+    public Set<String> getUserRoles(String username) {
+        User user = getEntityByUsername(username);
+        return user.getAuthorities()
+                .stream()
+                .map(Enum::name)
+                .collect(Collectors.toSet());
+    }
+
 }

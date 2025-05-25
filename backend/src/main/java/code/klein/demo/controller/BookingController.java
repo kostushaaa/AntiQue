@@ -7,12 +7,15 @@ import code.klein.demo.entity.Booking;
 import code.klein.demo.entity.Car;
 import code.klein.demo.entity.User;
 import code.klein.demo.request.CreateBookingRequest;
+import code.klein.demo.service.AuditLogService;
 import code.klein.demo.service.CarService;
 import code.klein.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +31,10 @@ public class BookingController {
     private final UserService userService;
 
     private final CarService carService;
+
+    @Autowired
+    private AuditLogService auditLogService;
+
 
 
     @PostMapping
@@ -58,5 +65,26 @@ public class BookingController {
     public ResponseEntity<List<Booking>> getAllBookings() {
         return ResponseEntity.ok(bookingService.getAllBookings());
     }
+
+    @DeleteMapping("/admin/delete")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<String> deleteBooking(@RequestParam Long id) {
+        bookingService.deleteBookingById(id);
+
+        auditLogService.log(
+                getCurrentUsername(),
+                "BOOKING_DELETED",
+                "Deleted booking with ID: " + id
+        );
+
+
+        return ResponseEntity.ok("Booking with ID " + id + " deleted");
+    }
+
+    private String getCurrentUsername() {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth != null ? auth.getName() : "UNKNOWN";
+    }
+
 
 }
