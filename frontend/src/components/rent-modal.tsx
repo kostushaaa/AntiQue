@@ -24,6 +24,7 @@ const RentModal: React.FC<RentModalProps> = ({ isOpen, onOpenChange, car }) => {
     name: '',
     email: '',
     phone: '',
+    licenseNumber: '',
     startDate: '',
     endDate: '',
     notes: ''
@@ -35,13 +36,25 @@ const RentModal: React.FC<RentModalProps> = ({ isOpen, onOpenChange, car }) => {
   };
 
   const handleSubmit = async () => {
-    if (!car || !formData.startDate || !formData.endDate) return;
+    if (!car || !formData.startDate || !formData.endDate || !formData.name || !formData.email || !formData.phone || !formData.licenseNumber) {
+      addToast({
+        title: "Fehlende Angaben",
+        description: "Bitte füllen Sie alle erforderlichen Felder aus.",
+        color: "warning"
+      });
+      return;
+    }
 
     try {
       await api.post('/bookings', {
         carId: car.id,
         startDate: formData.startDate,
-        endDate: formData.endDate
+        endDate: formData.endDate,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        licenseNumber: formData.licenseNumber,
+        notes: formData.notes
       });
 
       addToast({
@@ -110,6 +123,13 @@ const RentModal: React.FC<RentModalProps> = ({ isOpen, onOpenChange, car }) => {
                             label="Telefon"
                             name="phone"
                             value={formData.phone}
+                            onChange={handleChange}
+                            isRequired
+                        />
+                        <Input
+                            label="Führerscheinnummer"
+                            name="licenseNumber"
+                            value={formData.licenseNumber}
                             onChange={handleChange}
                             isRequired
                         />

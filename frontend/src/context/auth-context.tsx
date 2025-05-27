@@ -1,3 +1,4 @@
+// contexts/auth-context.tsx
 import React from 'react';
 import axios from 'axios';
 
@@ -15,44 +16,31 @@ const AuthContext = React.createContext<AuthContextType>({
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = React.useState<boolean>(() => {
-    return localStorage.getItem('isAuthenticated') === 'true';
+    return !!localStorage.getItem('token');
   });
 
   const login = async (username: string, password: string): Promise<boolean> => {
     try {
       const response = await axios.post(
-          '/auth/login', // 👈 относительный путь для прокси
+          '/auth/login',
           { username, password },
-          {
-            withCredentials: true, // 👈 важно для cookies (если сервер отдает jwt как cookie)
-            headers: { 'Content-Type': 'application/json' },
-          }
+          { headers: { 'Content-Type': 'application/json' } }
       );
 
-      if (response.status === 200) {
+      if (response.status === 200 && response.data?.token) {
+        localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
-        localStorage.setItem('isAuthenticated', 'true');
-
-        // Если сервер возвращает токен в теле и ты хочешь его хранить (опционально)
-        // Если сервер возвращает токен в теле и ты хочешь его хранить (опционально)
-        if (response.data.token) {
-          localStorage.setItem('token', response.data.token);
-        }
-
         return true;
       }
     } catch (error) {
       console.error('Login failed:', error);
     }
-
     return false;
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('token');
-    // можно также отправить запрос на logout, если сервер это поддерживает
   };
 
   return (

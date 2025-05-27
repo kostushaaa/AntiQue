@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, Link as RouteLink } from 'react-router-dom';
-import { Card, CardBody, CardHeader, CardFooter, Input, Button, Tabs, Tab, Divider } from "@heroui/react";
+import { Card, CardBody, CardHeader, CardFooter, Input, Button, Tabs, Tab } from "@heroui/react";
 import { Icon } from '@iconify/react';
 import { useAuth } from '../../contexts/auth-context.tsx';
 
