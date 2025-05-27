@@ -1,6 +1,5 @@
 package code.klein.demo.DTO;
 
-import code.klein.demo.entity.Booking;
 import code.klein.demo.entity.Car;
 
 public class CarMapper {

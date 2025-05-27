@@ -1,8 +1,6 @@
 package code.klein.demo.controller;
 
 import code.klein.demo.component.JwtUtil;
-import code.klein.demo.config.Role;
-import code.klein.demo.entity.User;
 import code.klein.demo.repository.UserRepository;
 import code.klein.demo.request.AuthenticationRequest;
 import code.klein.demo.request.AuthenticationResponse;
@@ -20,9 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Set;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/auth")

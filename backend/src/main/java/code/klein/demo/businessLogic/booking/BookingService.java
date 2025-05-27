@@ -1,7 +1,5 @@
 package code.klein.demo.businessLogic.booking;
 
-
-import code.klein.demo.DTO.BookingDto;
 import code.klein.demo.config.BookingStatus;
 import code.klein.demo.entity.Booking;
 import code.klein.demo.entity.Car;
@@ -22,7 +20,7 @@ public class BookingService {
     private final CarRepository carRepository;
 
 
-    public Booking createBooking(User user, Car car, LocalDateTime start, LocalDateTime end){
+    public Booking createBooking(User user, Car car, LocalDateTime start, LocalDateTime end) {
         if (!car.isAvailable()) {
             throw new IllegalStateException("Fahrzeug ist nicht verfügbar");
         }

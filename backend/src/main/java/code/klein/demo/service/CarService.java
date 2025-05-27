@@ -1,12 +1,10 @@
 package code.klein.demo.service;
 
 import code.klein.demo.entity.Car;
-import code.klein.demo.entity.Company;
 import code.klein.demo.repository.CarRepository;
 import code.klein.demo.repository.CompanyRepository;
 import code.klein.demo.request.car.CreateCarRequest;
 import code.klein.demo.request.car.UpdateCarRequest;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

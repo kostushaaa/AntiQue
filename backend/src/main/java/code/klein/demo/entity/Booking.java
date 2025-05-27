@@ -1,7 +1,6 @@
 package code.klein.demo.entity;
 
 import code.klein.demo.config.BookingStatus;
-import code.klein.demo.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
