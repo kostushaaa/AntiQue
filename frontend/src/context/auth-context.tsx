@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -18,24 +19,46 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const login = async (username: string, password: string): Promise<boolean> => {
-    // In a real app, this would be an API call to validate credentials
-    if (username === 'admin' && password === 'admin123') {
-      setIsAuthenticated(true);
-      localStorage.setItem('isAuthenticated', 'true');
-      return true;
+    try {
+      const response = await axios.post(
+          '/auth/login', // 👈 относительный путь для прокси
+          { username, password },
+          {
+            withCredentials: true, // 👈 важно для cookies (если сервер отдает jwt как cookie)
+            headers: { 'Content-Type': 'application/json' },
+          }
+      );
+
+      if (response.status === 200) {
+        setIsAuthenticated(true);
+        localStorage.setItem('isAuthenticated', 'true');
+
+        // Если сервер возвращает токен в теле и ты хочешь его хранить (опционально)
+        // Если сервер возвращает токен в теле и ты хочешь его хранить (опционально)
+        if (response.data.token) {
+          localStorage.setItem('token', response.data.token);
+        }
+
+        return true;
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
     }
+
     return false;
   };
 
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('token');
+    // можно также отправить запрос на logout, если сервер это поддерживает
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+        {children}
+      </AuthContext.Provider>
   );
 };
 

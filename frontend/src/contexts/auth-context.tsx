@@ -1,10 +1,11 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import api from "../util/api";
+import { useHistory } from "react-router-dom";
 
 interface User {
   id: number;
   username: string;
-  role: 'admin' | 'customer';
+  role: "admin" | "customer";
 }
 
 interface AuthContextType {
@@ -27,43 +28,56 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = React.useState<User | null>(null);
   const history = useHistory();
 
-  // Check if user is already logged in (from localStorage)
   React.useEffect(() => {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
-    // This is a mock login - in a real app, you would call an API
-    if (username === 'admin' && password === 'admin123') {
-      const adminUser = { id: 1, username: 'admin', role: 'admin' as const };
-      setUser(adminUser);
-      localStorage.setItem('user', JSON.stringify(adminUser));
-      return true;
-    } else if (username === 'customer' && password === 'customer123') {
-      const customerUser = { id: 2, username: 'customer', role: 'customer' as const };
-      setUser(customerUser);
-      localStorage.setItem('user', JSON.stringify(customerUser));
-      return true;
+    try {
+      const response = await api.post("/auth/login", { username, password });
+
+      if (response.status === 200) {
+        const userData: User = {
+          id: response.data.id,
+          username: response.data.username,
+          role: response.data.role || "customer",
+        };
+
+        setUser(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        if (response.data.token) {
+          api.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
+          localStorage.setItem("token", response.data.token);
+        }
+
+        return true;
+      }
+    } catch (error) {
+      console.error("Login error:", error);
     }
+
     return false;
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('user');
-    history.push('/');
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    delete api.defaults.headers.common["Authorization"];
+    history.push("/");
   };
 
   const isAuthenticated = user !== null;
-  const isAdmin = user?.role === 'admin';
+  const isAdmin = user?.role === "admin";
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, isAdmin, login, logout }}>
-      {children}
-    </AuthContext.Provider>
+      <AuthContext.Provider value={{ user, isAuthenticated, isAdmin, login, logout }}>
+        {children}
+      </AuthContext.Provider>
   );
 };
 

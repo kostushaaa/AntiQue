@@ -7,6 +7,7 @@ import code.klein.demo.repository.UserRepository;
 import code.klein.demo.request.AuthenticationRequest;
 import code.klein.demo.request.AuthenticationResponse;
 import code.klein.demo.request.RegisterRequest;
+import code.klein.demo.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -39,7 +40,10 @@ public class AuthenticationController {
     private UserRepository userRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthenticationService authenticationService;
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest)
@@ -65,29 +69,9 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest){
-        if (userRepository.existsByUsername(registerRequest.username())) {
-            return  ResponseEntity.badRequest().body("Username already exists");
-        }
-
-        if (userRepository.existsByEmail(registerRequest.email())) {
-            return  ResponseEntity.badRequest().body("mail-adress already exists");
-        }
-
-        User user = User.builder()
-                .username(registerRequest.username())
-                .email(registerRequest.email())
-                .password(passwordEncoder.encode(registerRequest.password()))
-                .authorities(Set.of(Role.ROLE_USER))
-                .accountNonExpired(true)
-                .accountNonLocked(true)
-                .credentialsNonExpired(true)
-                .isEnabled(true)
-                .uuid(UUID.randomUUID().toString())
-                .build();
-
-        userRepository.save(user);
-
+    public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest)
+    {
+        System.out.println(authenticationService.registerUser(registerRequest));
         return ResponseEntity.ok("Registrierung erfolgreich");
 
 
