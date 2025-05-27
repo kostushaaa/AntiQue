@@ -122,16 +122,16 @@ export const CustomerLayout: React.FC<{ children: React.ReactNode }> = ({ childr
               <h3 className="text-lg font-display mb-4">Services</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" color="foreground">Vermietung</Link>
+                  Vermietung
                 </li>
                 <li>
-                  <Link href="#" color="foreground">Fahrdienst</Link>
+                  Fahrdienst
                 </li>
                 <li>
-                  <Link href="#" color="foreground">Ankauf</Link>
+                  Ankauf
                 </li>
                 <li>
-                  <Link href="#" color="foreground">Verkauf</Link>
+                  Verkauf
                 </li>
               </ul>
             </div>

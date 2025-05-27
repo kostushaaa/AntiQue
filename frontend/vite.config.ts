@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [react()],
 	server: {
 		allowedHosts: true,
-		port: 8080,
+		port: 443,
 		https: {
 			pfx: fs.readFileSync(path.resolve(__dirname, 'keystore.p12')),
 			passphrase: 'password' // если есть
