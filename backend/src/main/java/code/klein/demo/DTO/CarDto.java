@@ -7,6 +7,7 @@ public record CarDto (
         Long id,
         String brand,
         String modelName,
+        String photoUrl,
         BigDecimal pricePerDay,
         BigDecimal pricePerKm,
         String currency,

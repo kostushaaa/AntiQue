@@ -4,22 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="Update database migration scripts and configuration files">
+    <list default="true" id="839db3ad-5d55-42e6-bda0-aadc53f89426" name="Changes" comment="Refactor authentication and booking components by removing unused imports and cleaning up code">
+      <change afterPath="$PROJECT_DIR$/frontend/src/data/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/CarMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/DTO/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/businessLogic/booking/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/component/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/controller/CarsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/CustomUserDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/test/tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/test/tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/code/klein/demo/request/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__create_cars_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V1__create_cars_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/car-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/car-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/rent-modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/rent-modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/auth-context.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/contexts/auth-context.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data/cars.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data/cars.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data/rentals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data/rentals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/admin/cars/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/admin/cars/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/admin/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/admin/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/admin/rentals/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/admin/rentals/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/car-detail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/car-detail/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/cars/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/cars/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/home/index.tsx" afterDir="false" />
     </list>
     <list id="2e5005eb-6a9d-417a-9eef-cc3ef085320d" name="Changes by danieldo" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +66,7 @@
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/3.4.4/spring-data-commons-3.4.4.jar!/org/springframework/data/repository/CrudRepository.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;585ece39fff01de70935285f407ac145251597fa&quot; value=&quot;###&amp;#10;GET http://localhost:9000/bookings/me&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;585ece39fff01de70935285f407ac145251597fa&quot; value=&quot;###&amp;#10;GET http://localhost:9000/bookings/me&quot; /&gt;&#10;  &lt;entry key=&quot;f2acfa2280583c01de6d17a16d00ce94a88d1931&quot; value=&quot;###&amp;#10;GET http://localhost:9000/admin/roles?&amp;#10;    username={{$random.alphanumeric(8)}}&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -75,41 +83,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AntiQieApplication.executor": "Debug",
-    "Docker.antique_docker.postgres: Compose Deployment.executor": "Run",
-    "Docker.antique_docker: Compose Deployment.executor": "Run",
-    "Maven.anique [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AntiQueApplication.executor": "Debug",
-    "git-widget-placeholder": "dev/api",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/climatezone/projects/AntiQue/backend/src/main/resources/db.outdated",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "ts.external.directory.path": "C:\\climatezone\\projects\\AntiQue\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AntiQieApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Docker.antique_docker.postgres: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.antique_docker: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.anique [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AntiQueApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev/api&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/climatezone/projects/AntiQue/backend/src/main/resources/db.outdated&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\climatezone\\projects\\AntiQue\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "PostgreSQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\climatezone\projects\AntiQue\backend\src\main\resources\db.outdated" />
@@ -213,7 +221,8 @@
       <updated>1748133453760</updated>
       <workItem from="1748133456975" duration="454000" />
       <workItem from="1748239596252" duration="10130000" />
-      <workItem from="1748329424618" duration="8830000" />
+      <workItem from="1748329424618" duration="11816000" />
+      <workItem from="1748378042642" duration="2601000" />
     </task>
     <task id="LOCAL-00001" summary="Update docker, application.properties, sql scripts">
       <option name="closed" value="true" />
@@ -247,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748338892960</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactor authentication and booking components by removing unused imports and cleaning up code">
+      <option name="closed" value="true" />
+      <created>1748339169219</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748339169219</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +301,7 @@
     <MESSAGE value="Initialize project with Vite, TypeScript, and Tailwind CSS configuration" />
     <MESSAGE value="Implement authentication service and update application properties for SSL support" />
     <MESSAGE value="Update database migration scripts and configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update database migration scripts and configuration files" />
+    <MESSAGE value="Refactor authentication and booking components by removing unused imports and cleaning up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor authentication and booking components by removing unused imports and cleaning up code" />
   </component>
 </project>

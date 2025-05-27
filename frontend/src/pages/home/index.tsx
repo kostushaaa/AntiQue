@@ -1,124 +1,140 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouteLink } from 'react-router-dom';
-import { Button, Card, CardBody, CardFooter } from "@heroui/react";
+import { Button, Card, CardBody, CardFooter, Spinner } from "@heroui/react";
 import { Icon } from '@iconify/react';
-import { cars } from '../../data/cars.ts';
+import { getCars } from '../../data/cars'; // или путь к getCars
+import { Car } from '../../data/types'; // путь к Car типу
 
 export const HomePage: React.FC = () => {
-  // Get only available cars for the featured section
+  const [cars, setCars] = useState<Car[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    getCars()
+        .then(setCars)
+        .finally(() => setLoading(false));
+  }, []);
+
   const featuredCars = cars.filter(car => car.available).slice(0, 3);
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative h-[600px] bg-secondary-800 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://img.heroui.chat/image/car?w=1920&h=1080&u=vintage_cars_hero" 
-            alt="Vintage cars" 
-            className="w-full h-full object-cover opacity-40"
-          />
-        </div>
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
-          <div className="max-w-2xl text-white">
-            <h1 className="text-5xl md:text-6xl font-display font-bold mb-4">
-              Classic Cars for Unforgettable Journeys
-            </h1>
-            <p className="text-xl mb-8">
-              Experience the charm and elegance of vintage automobiles. Our collection of classic cars is ready for your next adventure.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                as={RouteLink} 
-                to="/cars" 
-                color="primary" 
-                size="lg" 
-                className="font-semibold"
-                startContent={<Icon icon="lucide:car" />}
+      <div>
+        {/* Hero Section */}
+        <section className="relative h-[600px] bg-secondary-800 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img
+                src="https://img.heroui.chat/image/car?w=1920&h=1080&u=vintage_cars_hero"
+                alt="Vintage cars"
+                className="w-full h-full object-cover opacity-40"
+            />
+          </div>
+          <div className="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div className="max-w-2xl text-white">
+              <h1 className="text-5xl md:text-6xl font-display font-bold mb-4">
+                Classic Cars for Unforgettable Journeys
+              </h1>
+              <p className="text-xl mb-8">
+                Experience the charm and elegance of vintage automobiles. Our collection of classic cars is ready for your next adventure.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                    as={RouteLink}
+                    to="/cars"
+                    color="primary"
+                    size="lg"
+                    className="font-semibold"
+                    startContent={<Icon icon="lucide:car" />}
+                >
+                  Browse Our Cars
+                </Button>
+                <Button
+                    as="a"
+                    href="#how-it-works"
+                    variant="bordered"
+                    size="lg"
+                    className="text-white border-white font-semibold"
+                >
+                  How It Works
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Cars */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-display font-bold mb-4">Featured Vintage Cars</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Discover our handpicked selection of classic automobiles, each with its own unique history and character.
+              </p>
+            </div>
+
+            {loading ? (
+                <div className="flex justify-center items-center py-12">
+                  <Spinner color="primary" size="lg" />
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {featuredCars.map((car) => (
+                      <Card key={car.id} className="border border-gray-200 overflow-hidden">
+                        <div className="h-48 overflow-hidden">
+                          <img
+                              src={car.photoUrl}
+                              alt={`${car.brand} ${car.modelName}`}
+                              className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+                          />
+                        </div>
+                        <CardBody>
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-xl font-display font-semibold">
+                              {car.brand} {car.modelName}
+                            </h3>
+                            <div className="px-2 py-1 bg-primary-100 text-primary-700 rounded-md text-xs font-medium">
+                              {new Date(car.createdAt).getFullYear()}
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center">
+                            <div>
+                              <p className="text-sm text-gray-600">Price per day</p>
+                              <p className="text-xl font-semibold text-primary-600">{car.pricePerDay.toFixed(2)} €</p>
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-600">Price per km</p>
+                              <p className="text-lg font-semibold text-secondary-600">{car.pricePerKm.toFixed(2)} €</p>
+                            </div>
+                          </div>
+                        </CardBody>
+                        <CardFooter>
+                          <Button
+                              as={RouteLink}
+                              to={`/cars/${car.id}`}
+                              color="primary"
+                              variant="flat"
+                              fullWidth
+                          >
+                            View Details
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                  ))}
+                </div>
+            )}
+
+            <div className="text-center mt-12">
+              <Button
+                  as={RouteLink}
+                  to="/cars"
+                  color="primary"
+                  variant="solid"
+                  size="lg"
               >
-                Browse Our Cars
-              </Button>
-              <Button 
-                as="a" 
-                href="#how-it-works" 
-                variant="bordered" 
-                size="lg" 
-                className="text-white border-white font-semibold"
-              >
-                How It Works
+                View All Cars
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Featured Cars */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Featured Vintage Cars</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our handpicked selection of classic automobiles, each with its own unique history and character.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredCars.map((car) => (
-              <Card key={car.id} className="border border-gray-200 overflow-hidden">
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={car.image} 
-                    alt={car.name} 
-                    className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
-                  />
-                </div>
-                <CardBody>
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-display font-semibold">{car.name}</h3>
-                    <div className="px-2 py-1 bg-primary-100 text-primary-700 rounded-md text-xs font-medium">
-                      {car.year}
-                    </div>
-                  </div>
-                  <p className="text-gray-500 text-sm mb-4">{car.type}</p>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-sm text-gray-600">Price per day</p>
-                      <p className="text-xl font-semibold text-primary-600">{car.pricePerDay.toFixed(2)} €</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Price per km</p>
-                      <p className="text-lg font-semibold text-secondary-600">{car.pricePerKm.toFixed(2)} €</p>
-                    </div>
-                  </div>
-                </CardBody>
-                <CardFooter>
-                  <Button 
-                    as={RouteLink} 
-                    to={`/cars/${car.id}`} 
-                    color="primary" 
-                    variant="flat" 
-                    fullWidth
-                  >
-                    View Details
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              as={RouteLink} 
-              to="/cars" 
-              color="primary" 
-              variant="solid" 
-              size="lg"
-            >
-              View All Cars
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
 
       {/* How It Works */}
       <section id="how-it-works" className="py-16 bg-gray-50">

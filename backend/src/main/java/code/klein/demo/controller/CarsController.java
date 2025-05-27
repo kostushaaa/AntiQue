@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController("")
 public class CarsController {
 
     @Autowired
     private CarService carService;
 
-    @GetMapping("cars/")
+    @GetMapping("/api/public/cars")
     public ResponseEntity<List<CarDto>> getCars() {
         List<CarDto> carDtos = carService.getCars()
                 .stream()
@@ -31,8 +31,8 @@ public class CarsController {
         return ResponseEntity.ok(CarMapper.toDto(carService.createCar(request)));
     }
 
-    @GetMapping("cars/get")
-    public ResponseEntity<CarDto> getCar(@RequestParam Long id) {
+    @GetMapping("/api/public/cars/{id}")
+    public ResponseEntity<CarDto> getCar(@PathVariable Long id) {
         return ResponseEntity.ok(CarMapper.toDto(carService.getCarById(id)));
     }
 

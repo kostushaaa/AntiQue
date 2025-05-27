@@ -26,6 +26,9 @@ public class Car {
     @Column(name = "model_name", nullable = false)
     private String modelName;
 
+    @Column(name = "photo_url", nullable = true)
+    private String photoUrl;
+
     @Column(name = "price_per_day", nullable = false, precision = 10, scale = 2)
     private BigDecimal pricePerDay;
 

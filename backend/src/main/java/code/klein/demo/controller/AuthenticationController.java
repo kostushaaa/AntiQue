@@ -6,6 +6,7 @@ import code.klein.demo.request.AuthenticationRequest;
 import code.klein.demo.request.AuthenticationResponse;
 import code.klein.demo.request.RegisterRequest;
 import code.klein.demo.service.AuthenticationService;
+import code.klein.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -39,6 +40,8 @@ public class AuthenticationController {
 
     @Autowired
     private AuthenticationService authenticationService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authRequest)
@@ -60,7 +63,7 @@ public class AuthenticationController {
 
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        return ResponseEntity.ok(new AuthenticationResponse(jwt, userDetails.getAuthorities().toString()));
     }
 
     @PostMapping("/register")

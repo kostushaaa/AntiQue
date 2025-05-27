@@ -1,8 +1,7 @@
-import React from "react";
-import api from "../util/api";
-import { useHistory } from "react-router-dom";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import api from "../util/api"; // axios instance с baseURL и withCredentials
 
-interface User {
+export interface User {
   id: number;
   username: string;
   role: "admin" | "customer";
@@ -16,7 +15,7 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const AuthContext = React.createContext<AuthContextType>({
+const AuthContext = createContext<AuthContextType>({
   user: null,
   isAuthenticated: false,
   isAdmin: false,
@@ -24,14 +23,18 @@ const AuthContext = React.createContext<AuthContextType>({
   logout: () => {},
 });
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = React.useState<User | null>(null);
-  const history = useHistory();
+export const useAuth = () => useContext(AuthContext);
 
-  React.useEffect(() => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
+    const token = localStorage.getItem("token");
+
+    if (storedUser && token) {
       setUser(JSON.parse(storedUser));
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
   }, []);
 
@@ -39,28 +42,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const response = await api.post("/auth/login", { username, password });
 
-      if (response.status === 200) {
-        const userData: User = {
-          id: response.data.id,
-          username: response.data.username,
-          role: response.data.role || "customer",
-        };
+      const { token, role } = response.data;
 
-        setUser(userData);
-        localStorage.setItem("user", JSON.stringify(userData));
+      const parsedRole = role.includes("ROLE_ADMIN") ? "admin" : "customer";
 
-        if (response.data.token) {
-          api.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-          localStorage.setItem("token", response.data.token);
-        }
+      const userInfo: User = {
+        id: 0, // Заменить при наличии ID
+        username,
+        role: parsedRole,
+      };
 
-        return true;
-      }
+      setUser(userInfo);
+      localStorage.setItem("user", JSON.stringify(userInfo));
+      localStorage.setItem("token", token);
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      return true;
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("Login failed", error);
+      return false;
     }
-
-    return false;
   };
 
   const logout = () => {
@@ -68,17 +69,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     delete api.defaults.headers.common["Authorization"];
-    history.push("/");
   };
 
-  const isAuthenticated = user !== null;
-  const isAdmin = user?.role === "admin";
-
   return (
-      <AuthContext.Provider value={{ user, isAuthenticated, isAdmin, login, logout }}>
+      <AuthContext.Provider
+          value={{
+            user,
+            isAuthenticated: !!user,
+            isAdmin: user?.role === "admin",
+            login,
+            logout,
+          }}
+      >
         {children}
       </AuthContext.Provider>
   );
 };
-
-export const useAuth = () => React.useContext(AuthContext);

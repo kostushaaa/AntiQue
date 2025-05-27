@@ -1,3 +1,21 @@
+GET http://localhost:9000/cars/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-27T122822.400.txt
+
+###
+
+GET http://localhost:9000/cars/
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2025-05-27T122805.400.txt
+
+###
+
 POST http://localhost:8080/users
 Content-Type: application/json
 Content-Length: 35

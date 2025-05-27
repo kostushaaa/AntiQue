@@ -8,6 +8,7 @@ public class CarMapper {
                car.getId(),
                 car.getBrand(),
                 car.getModelName(),
+                car.getPhotoUrl(),
                 car.getPricePerDay(),
                 car.getPricePerKm(),
                 car.getCurrency().toString(),
